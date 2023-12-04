@@ -3,11 +3,11 @@ import boto3
 from datetime import datetime, timezone
 
 client = boto3.client('ec2')
-
+sns = boto3.client('sns')
 
 def sns_service(message):
     topic_arn = ' ' #SNS Topic ARN
-    client.publish(
+    sns.publish(
         TopicArn=topic_arn,
         Message=message
     )
